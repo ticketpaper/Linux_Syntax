@@ -11,12 +11,12 @@ mkdir "$dir_name"
 cd "$dir_name"
 
 for i in {1..100}
+do
+    touch "file$i.txt"
+    for j in {1..100}
     do
-        touch "file$i.txt"
-        for j in {1..100}
-            do
-                 echo "Hello World from file$j" >> "file$j.txt"
-            done
+        echo "Hello World from file$j" >> "file$j.txt"
     done
+done
 
 echo "practice3 completed"
