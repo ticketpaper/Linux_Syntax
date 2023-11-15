@@ -117,3 +117,16 @@ find . -name "*.txt" | xargs grep -rni "hello"
 find . -name "*.txt" -exec echo {} \;
 # -> find로 찾은 파일에 대해 echo명령어 실행
 find . -name "*.txt" -exec cp -r {} ./testFolder/ \;
+# -> 현재 디렉토리에서 모든 텍스트파일을 복사해서 현재 경로에 있는 ./testFolder에 붙여넗는다.
+
+su -
+# 루트 계정으로 전환
+sudo
+# 루트권한을 빌림 (현재 사용자의 비밀번호 입력)
+
+# 사용자 권한 
+rwx:rwx:rwx (Read:Write:Execute)
+---:---:---
+421:421:421
+사용자:그룹:그외 
+# 사용자 권한 변경
