@@ -91,3 +91,29 @@ for 변수 in 항목들;
 do
  반복할 구문
 done 
+
+# 파일 내에서 특정 패턴이나 문자열 검색
+grep [옵션] [패턴] [파일명]
+-r : 디렉토리 내 모든 파일에서 검색
+-i : 대소문자 구분 없이 검색
+-n : 라인수 출력
+grep -rin "hello" mydir
+# -> hello 문자열을 라인수와 함께 mydir폴더에서 대소문자 구분없이 검색
+
+# 파일을 찾는 명령어
+find [경로] [옵션] [행동]
+-name : 파일명으로 검색
+-type : 타입으로 검색 (f는파일 d는 디렉토리)
+-exec, \, {} 
+    - exec : find로 찾은 결과에 대해 실행 명령
+    - \ : exec 종료 지점을 의미
+    - {} : find로 찾은 대상이 담기는 공간을 의미
+
+find . -name "*.txt" | xargs grep -rni "hello"
+# -> 현재폴더에서 .txt파일 중 파일안에 대소문자 구분없이 "hello"을 포함하는 파일경로, 줄 출력 
+# | (파이프라인)을 통해 다음 명령어로 전달
+# xargs는 입력받은 파일을 한줄씩 읽는것을 의미
+
+find . -name "*.txt" -exec echo {} \;
+# -> find로 찾은 파일에 대해 echo명령어 실행
+find . -name "*.txt" -exec cp -r {} ./testFolder/ \;
